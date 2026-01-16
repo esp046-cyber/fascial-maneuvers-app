@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fascial Maneuvers 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 1%;
+            color: #fff;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 15px 1%;
+            text-align: center;
+        }
+        h1 {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0;
+        }
+        .tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+        }
+        .tab {
+            flex: 1;
+            padding: 12px 5px;
+            text-align: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            color: #6c757d;
+            transition: all 0.3s;
+        }
+        .tab.active {
+            color: #667eea;
+            background: #fff;
+            border-bottom: 3px solid #667eea;
+        }
+        .content {
+            padding: 1%;
+            max-height: 70vh;
+            overflow-y: auto;
+            color: #333;
+        }
+        .section {
+            display: none;
+            animation: fadeIn 0.4s;
+        }
+        .section.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h2 {
+            font-size: 16px;
+            color: #667eea;
+            margin: 15px 0 8px;
+            padding-left: 1%;
+            border-left: 4px solid #667eea;
+        }
+        h3 {
+            font-size: 14px;
+            color: #764ba2;
+            margin: 12px 0 6px;
+        }
+        p, li {
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 8px;
+            color: #495057;
+        }
+        .highlight {
+            background: linear-gradient(120deg, #ffd89b 0%, #19547b 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 12px;
+            margin: 10px 0;
+            border-left: 4px solid #667eea;
+        }
+        .step {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-radius: 10px;
+            padding: 10px;
+            margin: 8px 0;
+        }
+        .step-num {
+            display: inline-block;
+            background: #667eea;
+            color: #fff;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-weight: 700;
+            font-size: 12px;
+            margin-right: 8px;
+        }
+        ul {
+            padding-left: 20px;
+            margin: 8px 0;
+        }
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        .tip {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        .visual-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 15px;
+            margin: 12px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .diagram {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-size: 40px;
+            line-height: 1.2;
+        }
+        .arrow {
+            color: #667eea;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .direction {
+            display: inline-block;
+            background: #667eea;
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            margin: 3px;
+        }
+        .body-part {
+            font-size: 12px;
+            color: #764ba2;
+            font-weight: 700;
+            margin-top: 8px;
+        }
+        .instruction-box {
+            background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 8px;
+            font-size: 12px;
+        }
+        .quick-routine {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 12px;
+            border-radius: 12px;
+            margin: 10px 0;
+        }
+        .quick-routine h3 {
+            color: #fff;
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+        .move-item {
+            background: rgba(255,255,255,0.15);
+            padding: 8px;
+            border-radius: 8px;
+            margin: 6px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .move-icon {
+            font-size: 24px;
+            min-width: 30px;
+        }
+        .move-detail {
+            flex: 1;
+            font-size: 12px;
+        }
+        .move-detail strong {
+            display: block;
+            font-size: 13px;
+        }
+        .time-badge {
+            background: #ffd89b;
+            color: #333;
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+        .routine-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .total-time {
+            background: rgba(255,255,255,0.25);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .problem-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 12px;
+            margin: 10px 0;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        .problem-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .problem-title h3 {
+            color: #667eea;
+            font-size: 14px;
+            margin: 0;
+        }
+        .problem-icon {
+            font-size: 24px;
+        }
+        .protocol-step {
+            background: #f8f9fa;
+            padding: 8px;
+            border-radius: 6px;
+            margin: 6px 0;
+            font-size: 12px;
+        }
+        .protocol-step strong {
+            color: #764ba2;
+            display: block;
+            margin-bottom: 3px;
+        }
+        .frequency {
+            display: inline-block;
+            background: #17a2b8;
+            color: #fff;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 700;
+            margin-top: 5px;
+        }
+        .avoid-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 8px;
+            border-radius: 6px;
+            margin-top: 8px;
+            font-size: 11px;
+        }
+        .tracker-section {
+            background: #fff;
+            border-radius: 12px;
+            padding: 12px;
+            margin: 10px 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        .tracker-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .log-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .log-btn:active {
+            transform: scale(0.95);
+        }
+        .streak-display {
+            text-align: center;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-radius: 12px;
+            margin: 10px 0;
+        }
+        .streak-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: #667eea;
+        }
+        .streak-label {
+            font-size: 12px;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+        .log-entry {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 6px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+        }
+        .log-date {
+            font-weight: 700;
+            color: #667eea;
+        }
+        .log-routine {
+            color: #495057;
+        }
+        .delete-btn {
+            background: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            cursor: pointer;
+        }
+        .mobility-test {
+            background: #fff;
+            border-radius: 12px;
+            padding: 12px;
+            margin: 10px 0;
+            border-left: 4px solid #17a2b8;
+        }
+        .test-input {
+            display: flex;
+            gap: 8px;
+            margin: 8px 0;
+            align-items: center;
+        }
+        .test-input input {
+            flex: 1;
+            padding: 8px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 12px;
+        }
+        .test-input button {
+            background: #17a2b8;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .progress-bar {
+            background: #e9ecef;
+            border-radius: 10px;
+            height: 20px;
+            margin: 8px 0;
+            overflow: hidden;
+        }
+        .progress-fill {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100%;
+            transition: width 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+        }
+        .stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .stat-box {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: #667eea;
+        }
+        .stat-label {
+            font-size: 11px;
+            color: #6c757d;
+            margin-top: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Fascial Maneuvers Guide 2026</h1>
+        </header>
+        
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('intro')">Intro</button>
+            <button class="tab" onclick="showTab('quick')">Quick</button>
+            <button class="tab" onclick="showTab('problems')">Problems</button>
+            <button class="tab" onclick="showTab('tracker')">Tracker</button>
+            <button class="tab" onclick="showTab('visual')">Visual</button>
+            <button class="tab" onclick="showTab('steps')">Steps</button>
+            <button class="tab" onclick="showTab('skills')">Skills</button>
+            <button class="tab" onclick="showTab('beginner')">Beginner</button>
+        </div>
+        
+        <div class="content">
+            <div id="intro" class="section active">
+                <h2>What Are Fascial Maneuvers?</h2>
+                <p>Fascial maneuvers are <span class="highlight">rotational movements</span> designed to restore tissue health and mobility by working with your body's fascial system—the connective tissue network surrounding muscles, organs, and bones.</p>
+                
+                <div class="card">
+                    <h3>🔄 Rotation vs Stretching</h3>
+                    <p><strong>Human Garage Key Principle:</strong> Stretching causes more injuries compared to rotational movements. Traditional stretching pulls tissues linearly, creating tension and potential micro-tears.</p>
+                    <p><strong>Why Rotation Works:</strong> Rotational movements follow the natural spiral patterns of fascia, unwinding tension without force and promoting hydration and glide between tissue layers.</p>
+                </div>
+
+                <div class="warning">
+                    <strong>⚠️ Important:</strong> Avoid static stretching for injury prevention. Focus on controlled rotation instead.
+                </div>
+
+                <h2>Core Benefits</h2>
+                <ul>
+                    <li>Reduced injury risk through gentle tissue mobilization</li>
+                    <li>Improved range of motion via fascial unwinding</li>
+                    <li>Better posture and alignment</li>
+                    <li>Enhanced circulation and tissue hydration</li>
+                    <li>Pain reduction through tension release</li>
+                </ul>
+            </div>
+            
+            <div id="quick" class="section">
+                <h2>Quick Reference Cards</h2>
+                
+                <div class="quick-routine">
+                    <div class="routine-header">
+                        <h3>⚡ 5-Minute Morning Reset</h3>
+                        <span class="total-time">5 MIN</span>
+                    </div>
+                    
+                    <div class="move-item">
+                        <span class="move-icon">🫁</span>
+                        <div class="move-detail">
+                            <strong>Deep Breathing</strong>
+                            5 breaths: 4 sec in, 6 sec out
+                        </div>
+                        <span class="time-badge">1 min</span>
+                    </div>
+                    
+                    <div class="move-item">
+                        <span class="move-icon">😐</span>
+                        <div class="move-detail">
+                            <strong>Neck Rotations</strong>
+                            10 rotations each direction
+                        </div>
+                        <span class="time-badge">1 min</span>
+                    </div>
+                    
+                    <div class="move-item">
+                        <span class="move-icon">💪</span>
+                        <div class="move-detail">
+                            <strong>Shoulder Circles</strong>
+                            15 backward circles
+                        </div>
+                        <span class="time-badge">1 min</span>
+                    </div>
+                    
+                    <div class="move-item">
+                        <span class="move-icon">🧍</span>
+                        <div class="move-detail">
+                            <strong>Spinal Twists</strong>
+                            10 rotations each side
+                        </div>
+                        <span class="time-badge">1 min</span>
+                    </div>
+                    
+                    <div class="move-item">
+                        <span class="move-icon">🦶</span>
+                        <div class="move-detail">
+                            <strong>Ankle Circles</strong>
+                            10 each direction, both feet
+                        </div>
+                        <span class="time-badge">1 min</span>
+                    </div>
+                </div>
+
+                <div class="quick-routine">
+                    <div class="routine-header">
+                        <h3>💼 Desk Break Routine</h3>
+                        <span class="total-time">3 MIN</span>
+                    </div>
+                    
+                    <div class="move-item">
+                        <span class="move-icon">😐</span>
+                        <div class="move-detail">
+                            <strong>Neck Circles</strong>
+                            5 each direction, slow
+                        </div>
+                        <span class="time-badge">45s</span>
+                    </div>
+                    
+                    <div class="move-item">
+                        <span class="move-icon">💪</span>
+                        <div class="move-detail">
+                            <strong>Shoulder Rolls</strong>
+                            10 backward, 10 forward
+                        </div>
+                        <span class="time-badge">1 min</span>
+                    </div>
+                    
+                    <div class="move-item">
+                        <span class="move-icon">🤚</span>
+                        <div class="move-detail">
+                            <strong>Wrist Rotations</strong>
+                            10 circles each direction
+                        </div>
+                        <span class="time-badge">45s</span>
+                    </div>
+                    
+                    <div class="move-item">
+                        <span class="move-icon">🧘</span>
+                        <div class="move-detail">
+                            <strong>Seated Spinal Twist</strong>
+                            5 breaths each side
+                        </div>
+                        <span class="time-badge">30s</span>
+                    </div>
+                </div>
+
+                <div class="quick-routine">
+                    <div class="routine-header">
+                        <h3>🌙 Evening Wind-Down</h3>
+                        <span class="total-time">7 MIN</span>
+                    </div>
+                    
+                    <div class="move-item">
+                        <span class="move-icon">🫁</span>
+                        <div class="move-detail">
+                            <strong>Calm Breathing</strong>
+                            10 deep belly breaths
+                        </div>
+                        <span class="time-badge">2 min</span>
+                    </div>
+                    
+                    <div class="move-item">
+                        <span class="move-icon">😐</span>
+                        <div class="move-detail">
+                            <strong>Gentle Neck Rotations</strong>
+                            8 each direction, very slow
+                        </div>
+                        <span class="time-badge">1 min</span>
+                    </div>
+                    
+                    <div class="move-item">
+                        <span class="move-icon">💪</span>
+                        <div class="move-detail">
+                            <strong>Shoulder Release</strong>
+                            12 circles with breath sync
+                        </div>
+                        <span class="time-badge">1 min</span>
+                    </div>
+                    
+                    <div class="move-item">
+                        <span class="move-icon">🧘</span>
+                        <div class="move-detail">
+                            <strong>Spinal Twist (Lying)</strong>
+                            Hold 60s each side
+                        </div>
+                        <span class="time-badge">2 min</span>
+                    </div>
+                    
+                    <div class="move-item">
+                        <span class="move-icon">🦵</span>
+                        <div class="move-detail">
+                            <strong>Hip Circles (Lying)</strong>
+                            5 each direction per leg
+                        </div>
+                        <span class="time-badge">1 min</span>
+                    </div>
+                </div>
+
+                <div class="quick-routine">
+                    <div class="routine-header">
+                        <h3>🏃 Pre-Workout Prep</h3>
+                        <span class="total-time">8 MIN</span>
+                    </div>
+                    
+                    <div class="move-item">
+                        <span class="move-icon">🫁</span>
+                        <div class="move-detail">
+                            <strong>Dynamic Breathing</strong>
+                            5 deep breaths with arm raises
+                        </div>
+                        <span class="time-badge">1 min</span>
+                    </div>
+                    
+                    <div class="move-item">
+                        <span class="move-icon">😐</span>
+                        <div class="move-detail">
+                            <strong>Neck CARs</strong>
+                            Full range rotations, 8 reps
+                        </div>
+                        <span class="time-badge">1 min</span>
+                    </div>
+                    
+                    <div class="move-item">
+                        <span class="move-icon">💪</span>
+                        <div class="move-detail">
+                            <strong>Shoulder CARs</strong>
+                            15 controlled circles each direction
+                        </div>
+                        <span class="time-badge">2 min</span>
+                    </div>
+                    
+                    <div class="move-item">
+                        <span class="move-icon">🧍</span>
+                        <div class="move-detail">
+                            <strong>Hip CARs</strong>
+                            8 circles each leg, both directions
+                        </div>
+                        <span class="time-badge">2 min</span>
+                    </div>
+                    
+                    <div class="move-item">
+                        <span class="move-icon">🦶</span>
+                        <div class="move-detail">
+                            <strong>Ankle Mobility</strong>
+                            15 circles each foot
+                        </div>
+                        <span class="time-badge">1 min</span>
+                    </div>
+                    
+                    <div class="move-item">
+                        <span class="move-icon">🧘</span>
+                        <div class="move-detail">
+                            <strong>Full Body Twist</strong>
+                            10 dynamic rotations
+                        </div>
+                        <span class="time-badge">1 min</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>📋 Daily Integration Tips</h3>
+                    <ul>
+                        <li><strong>Morning:</strong> Do 5-min reset right after waking</li>
+                        <li><strong>Every 2 hours:</strong> Quick 3-min desk break</li>
+                        <li><strong>Pre-workout:</strong> Full 8-min prep routine</li>
+                        <li><strong>Evening:</strong> 7-min wind-down before bed</li>
+                    </ul>
+                </div>
+
+                <div class="tip">
+                    <strong>💡 Pro Tips:</strong>
+                    <ul>
+                        <li>Set phone alarms for routine reminders</li>
+                        <li>Start with ONE routine consistently for 1 week</li>
+                        <li>Quality over quantity—slow = better</li>
+                        <li>Never force through pain or restriction</li>
+                    </ul>
+                </div>
+
+                <div class="warning">
+                    <strong>⚠️ Remember:</strong> These are ROTATIONAL movements, not static stretches. Move continuously through ranges without pulling or forcing.
+                </div>
+            </div>
+            
+            <div id="problems" class="section">
+                <h2>Problem-Specific Protocols</h2>
+                
+                <div class="problem-card">
+                    <div class="problem-title">
+                        <span class="problem-icon">😣</span>
+                        <h3>Neck Pain / Tech Neck</h3>
+                    </div>
+                    
+                    <div class="protocol-step">
+                        <strong>1. Neck Rotations</strong>
+                        10 slow rotations each direction, pause at restrictions
+                    </div>
+                    
+                    <div class="protocol-step">
+                        <strong>2. Chin Tucks with Rotation</strong>
+                        Gently tuck chin, rotate head left/right, 8 reps each side
+                    </div>
+                    
+                    <div class="protocol-step">
+                        <strong>3. Shoulder Blade Circles</strong>
+                        15 backward circles to release upper trap tension
+                    </div>
+                    
+                    <div class="protocol-step">
+                        <strong>4. Thoracic Rotation (Seated)</strong>
+                        Hands behind head, rotate upper body, 10 each side
+                    </div>
+                    
+                    <span class="frequency">3x DAILY</span>
+                    
+                    <div class="avoid-box">
+                        <strong>❌ Avoid:</strong> Forward head stretches, neck crunches, aggressive pulling
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-title">
+                        <span class="problem-icon">🏋️</span>
+                        <h3>Tight/Rounded Shoulders</h3>
+                    </div>
+                    
+                    <div class="protocol-step">
+                        <strong>1. Wall Angels with Rotation</strong>
+                        Back to wall, arms up, rotate palms out/in, 12 reps
+                    </div>
+                    
+                    <div class="protocol-step">
+                        <strong>2. Shoulder CARs</strong>
+                        Full controlled circles, 10 each direction per arm
+                    </div>
+                    
+                    <div class="protocol-step">
+                        <strong>3. Chest Opening Rotations</strong>
+                        Hands clasped behind back, rotate shoulders back, 15 reps
+                    </div>
+                    
+                    <div class="protocol-step">
+                        <strong>4. Scapular Protraction/Retraction</strong>
+                        Push shoulders forward, squeeze back, 15 reps
+                    </div>
+                    
+                    <span class="frequency">2x DAILY</span>
+                    
+                    <div class="avoid-box">
+                        <strong>❌ Avoid:</strong> Static chest stretches, doorway stretches, aggressive pulling
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-title">
+                        <span class="problem-icon">🪑</span>
+                        <h3>Lower Back Pain</h3>
+                    </div>
+                    
+                    <div class="protocol-step">
+                        <strong>1. Pelvic Tilts with Rotation</strong>
+                        Lying down, rock pelvis and add small rotations, 15 reps
+                    </div>
+                    
+                    <div class="protocol-step">
+                        <strong>2. Cat-Cow Circles</strong>
+                        On hands/knees, make circular movements with spine, 10 each direction
+                    </div>
+                    
+                    <div class="protocol-step">
+                        <strong>3. Hip CARs</strong>
+                        Standing, 8 circles each leg, both directions
+                    </div>
+                    
+                    <div class="protocol-step">
+                        <strong>4. Spinal Twist (Lying)</strong>
+                        Knees bent, drop to sides with rotation, hold 60s each
+                    </div>
+                    
+                    <span class="frequency">2-3x DAILY</span>
+                    
+                    <div class="avoid-box">
+                        <strong>❌ Avoid:</strong> Toe touches, aggressive twisting, forward fold stretches
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-title">
+                        <span class="problem-icon">🦵</span>
+                        <h3>Tight Hips / Hip Flexors</h3>
+                    </div>
+                    
+                    <div class="protocol-step">
+                        <strong>1. Hip CARs (Comprehensive)</strong>
+                        10 circles each direction, both legs, full range
+                    </div>
+                    
+                    <div class="protocol-step">
+                        <strong>2. 90/90 Hip Rotations</strong>
+                        Seated, rotate between internal/external, 8 transitions each side
+                    </div>
+                    
+                    <div class="protocol-step">
+                        <strong>3. Standing Hip Circles</strong>
+                        Hands on hips, circle hips 15 times each direction
+                    </div>
+                    
+                    <div class="protocol-step">
+                        <strong>4. Leg Swings with Rotation</strong>
+                        Front/back swings with slight hip rotation, 12 each leg
+                    </div>
+                    
+                    <span class="frequency">DAILY</span>
+                    
+                    <div class="avoid-box">
+                        <strong>❌ Avoid:</strong> Deep static lunges, aggressive hip flexor stretches, forcing splits
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-title">
+                        <span class="problem-icon">🧍</span>
+                        <h3>Poor Posture / Forward Head</h3>
+                    </div>
+                    
+                    <div class="protocol-step">
+                        <strong>1. Chin Tucks</strong>
+                        Gently draw chin back, hold 5s, 10 reps
+                    </div>
+                    
+                    <div class="protocol-step">
+                        <strong>2. Thoracic Extension Rotations</strong>
+                        Over foam roller or chair, rotate arms overhead, 10 reps
+                    </div>
+                    
+                    <div class="protocol-step">
+                        <strong>3. Scapular Wall Slides</strong>
+                        Back to wall, slide arms up with rotation, 12 reps
+                    </div>
+                    
+                    <div class="protocol-step">
+                        <strong>4. Full Spinal Waves</strong>
+                        Standing, create wave motion through spine, 10 reps
+                    </div>
+                    
+                    <span class="frequency">3x DAILY</span>
+                    
+                    <div class="avoid-box">
+                        <strong>❌ Avoid:</strong> Forcing shoulders back, military posture, chest stretches
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-title">
+                        <span class="problem-icon">👟</span>
+                        <h3>Ankle Stiffness / Plantar Issues</h3>
+                    </div>
+                    
+                    <div class="protocol-step">
+                        <strong>1. Ankle Circles (Comprehensive)</strong>
+                        20 circles each direction, both feet, point toes
+                    </div>
+                    
+                    <div class="protocol-step">
+                        <strong>2. Toe Spreading with Rotation</strong>
+                        Spread toes wide, rotate ankles, 15 reps
+                    </div>
+                    
+                    <div class="protocol-step">
+                        <strong>3. Calf Rotations</strong>
+                        Standing, rotate lower leg over planted foot, 10 each
+                    </div>
+                    
+                    <div class="protocol-step">
+                        <strong>4. Foot Doming</strong>
+                        Create arch, rotate weight through foot, 12 reps
+                    </div>
+                    
+                    <span class="frequency">2x DAILY</span>
+                    
+                    <div class="avoid-box">
+                        <strong>❌ Avoid:</strong> Aggressive calf stretches, bouncing, forcing dorsiflexion
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-title">
+                        <span class="problem-icon">💻</span>
+                        <h3>Wrist Pain / Carpal Tunnel</h3>
+                    </div>
+                    
+                    <div class="protocol-step">
+                        <strong>1. Wrist Circles</strong>
+                        15 circles each direction, both wrists, full range
+                    </div>
+                    
+                    <div class="protocol-step">
+                        <strong>2. Finger Circles</strong>
+                        Circle each finger individually, 5 reps per finger
+                    </div>
+                    
+                    <div class="protocol-step">
+                        <strong>3. Forearm Rotations</strong>
+                        Palms up/down rotations, elbow bent, 15 reps
+                    </div>
+                    
+                    <div class="protocol-step">
+                        <strong>4. Prayer Pose Circles</strong>
+                        Palms together, circle wrists, 12 each direction
+                    </div>
+                    
+                    <span class="frequency">HOURLY</span>
+                    
+                    <div class="avoid-box">
+                        <strong>❌ Avoid:</strong> Aggressive wrist extensions, push-up position holds, static stretches
+                    </div>
+                </div>
+
+                <div class="tip">
+                    <strong>💡 Protocol Guidelines:</strong>
+                    <ul>
+                        <li>Do protocols 2-4 weeks for noticeable change</li>
+                        <li>Pain should decrease, not increase during movements</li>
+                        <li>Combine with relevant Quick Reference routine</li>
+                        <li>If pain persists >4 weeks, consult specialist</li>
+                    </ul>
+                </div>
+
+                <div class="warning">
+                    <strong>⚠️ Critical:</strong> All movements are ROTATIONAL, never force through pain. Stop if sharp pain occurs. These protocols complement, not replace, medical care.
+                </div>
+            </div>
+            
+            <div id="tracker" class="section">
+                <h2>Progress Tracker</h2>
+                
+                <div class="streak-display">
+                    <div class="streak-number" id="streakCount">0</div>
+                    <div class="streak-label">DAY STREAK 🔥</div>
+                </div>
+
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <div class="stat-number" id="totalSessions">0</div>
+                        <div class="stat-label">Total Sessions</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number" id="totalMinutes">0</div>
+                        <div class="stat-label">Minutes Practiced</div>
+                    </div>
+                </div>
+
+                <div class="tracker-section">
+                    <div class="tracker-header">
+                        <h3 style="margin:0; font-size:14px; color:#667eea;">Log Session</h3>
+                    </div>
+                    
+                    <select id="routineSelect" style="width:100%; padding:10px; border-radius:8px; border:2px solid #e9ecef; margin-bottom:8px; font-size:12px;">
+                        <option value="">Choose Routine...</option>
+                        <option value="5">5-Min Morning Reset</option>
+                        <option value="3">3-Min Desk Break</option>
+                        <option value="7">7-Min Evening Wind-Down</option>
+                        <option value="8">8-Min Pre-Workout</option>
+                        <option value="custom">Custom Session</option>
+                    </select>
+                    
+                    <div id="customMinutes" style="display:none; margin-bottom:8px;">
+                        <input type="number" id="customTime" placeholder="Minutes" style="width:100%; padding:10px; border-radius:8px; border:2px solid #e9ecef; font-size:12px;">
+                    </div>
+                    
+                    <button class="log-btn" onclick="logSession()" style="width:100%;">✓ Log Session</button>
+                </div>
+
+                <div class="tracker-section">
+                    <h3 style="margin:0 0 10px 0; font-size:14px; color:#667eea;">Recent Sessions</h3>
+                    <div id="sessionLog">
+                        <p style="text-align:center; color:#6c757d; font-size:12px; padding:20px;">No sessions logged yet. Start tracking!</p>
+                    </div>
+                </div>
+
+                <div class="mobility-test">
+                    <h3 style="margin:0 0 10px 0; font-size:14px; color:#17a2b8;">Mobility Check-ins</h3>
+                    <p style="font-size:11px; color:#6c757d; margin-bottom:10px;">Track your range of motion improvements</p>
+                    
+                    <div style="margin:10px 0;">
+                        <strong style="font-size:12px; color:#495057;">Neck Rotation (degrees)</strong>
+                        <div class="test-input">
+                            <input type="number" id="neckTest" placeholder="0-90°">
+                            <button onclick="saveTest('neck')">Save</button>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="neckProgress" style="width:0%;">0°</div>
+                        </div>
+                    </div>
+
+                    <div style="margin:10px 0;">
+                        <strong style="font-size:12px; color:#495057;">Shoulder Flexion (degrees)</strong>
+                        <div class="test-input">
+                            <input type="number" id="shoulderTest" placeholder="0-180°">
+                            <button onclick="saveTest('shoulder')">Save</button>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="shoulderProgress" style="width:0%;">0°</div>
+                        </div>
+                    </div>
+
+                    <div style="margin:10px 0;">
+                        <strong style="font-size:12px; color:#495057;">Hip Rotation (degrees)</strong>
+                        <div class="test-input">
+                            <input type="number" id="hipTest" placeholder="0-45°">
+                            <button onclick="saveTest('hip')">Save</button>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="hipProgress" style="width:0%;">0°</div>
+                        </div>
+                    </div>
+
+                    <div style="margin:10px 0;">
+                        <strong style="font-size:12px; color:#495057;">Pain Level (0-10)</strong>
+                        <div class="test-input">
+                            <input type="number" id="painTest" placeholder="0=none, 10=worst" max="10">
+                            <button onclick="saveTest('pain')">Save</button>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="painProgress" style="width:0%; background:linear-gradient(135deg, #28a745 0%, #20c997 100%);">0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tip">
+                    <strong>💡 Tracking Tips:</strong>
+                    <ul>
+                        <li>Log sessions immediately after completing</li>
+                        <li>Test mobility weekly on same day/time</li>
+                        <li>Take "before" measurements today for comparison</li>
+                        <li>Aim for 7-day streaks to build habit</li>
+                        <li>Improvements typically show in 2-4 weeks</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>🎯 Goal Setting</h3>
+                    <p style="font-size:12px; margin:5px 0;">Weekly Goal: <span id="weeklyGoal" style="font-weight:700; color:#667eea;">0/5</span> sessions</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="weeklyProgress" style="width:0%;">0%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="visual" class="section">
+                <h2>Visual Movement Guide</h2>
+                
+                <div class="visual-card">
+                    <h3>1. Neck Rotation</h3>
+                    <div class="diagram">
+                        😐<br>
+                        <span class="arrow">↺ ↻</span><br>
+                        <span class="body-part">HEAD</span>
+                    </div>
+                    <div class="instruction-box">
+                        <strong>Setup:</strong> Sit or stand tall, shoulders relaxed<br>
+                        <strong>Movement:</strong> Slowly turn head left, return center, turn right<br>
+                        <strong>Reps:</strong> 10 each direction<br>
+                        <span class="direction">SLOW</span> <span class="direction">CONTROLLED</span>
+                    </div>
+                </div>
+
+                <div class="visual-card">
+                    <h3>2. Shoulder Circles (Backward)</h3>
+                    <div class="diagram">
+                        💪 <span class="arrow">⟲</span> 💪<br>
+                        <span style="font-size: 30px;">🧍</span><br>
+                        <span class="body-part">SHOULDERS</span>
+                    </div>
+                    <div class="instruction-box">
+                        <strong>Setup:</strong> Stand, arms relaxed at sides<br>
+                        <strong>Movement:</strong> Roll shoulders UP → BACK → DOWN → FORWARD<br>
+                        <strong>Reps:</strong> 15 backward rotations<br>
+                        <span class="direction">FULL ROM</span> <span class="direction">NO STRETCH</span>
+                    </div>
+                </div>
+
+                <div class="visual-card">
+                    <h3>3. Hip CARs (Controlled Articular Rotations)</h3>
+                    <div class="diagram">
+                        🦵<span class="arrow">↻</span><br>
+                        <span style="font-size: 30px;">🧍</span><br>
+                        <span class="body-part">HIP JOINT</span>
+                    </div>
+                    <div class="instruction-box">
+                        <strong>Setup:</strong> Stand on one leg, hands on hips or wall<br>
+                        <strong>Movement:</strong> Lift knee forward → rotate out → extend back → circle to front<br>
+                        <strong>Reps:</strong> 5-8 each direction, both legs<br>
+                        <span class="direction">INTERNAL</span> <span class="direction">EXTERNAL</span>
+                    </div>
+                </div>
+
+                <div class="visual-card">
+                    <h3>4. Ankle Circles</h3>
+                    <div class="diagram">
+                        <span class="arrow">↻ ↺</span><br>
+                        🦶<br>
+                        <span class="body-part">ANKLE</span>
+                    </div>
+                    <div class="instruction-box">
+                        <strong>Setup:</strong> Seated or standing, lift foot off ground<br>
+                        <strong>Movement:</strong> Point toe, draw large circles in both directions<br>
+                        <strong>Reps:</strong> 20 each direction per foot<br>
+                        <span class="direction">CLOCKWISE</span> <span class="direction">COUNTER-CLOCKWISE</span>
+                    </div>
+                </div>
+
+                <div class="visual-card">
+                    <h3>5. Spinal Twist (Seated)</h3>
+                    <div class="diagram">
+                        <span class="arrow">← 🧘 →</span><br>
+                        <span class="body-part">SPINE</span>
+                    </div>
+                    <div class="instruction-box">
+                        <strong>Setup:</strong> Sit tall, feet flat, hands behind head or chest<br>
+                        <strong>Movement:</strong> Rotate torso left/right, keep hips stable<br>
+                        <strong>Reps:</strong> 10 each side<br>
+                        <span class="direction">KEEP HIPS SQUARE</span> <span class="direction">BREATHE</span>
+                    </div>
+                </div>
+
+                <div class="visual-card">
+                    <h3>6. Wrist Circles</h3>
+                    <div class="diagram">
+                        <span class="arrow">↻</span> 🤚 <span class="arrow">↺</span><br>
+                        <span class="body-part">WRISTS</span>
+                    </div>
+                    <div class="instruction-box">
+                        <strong>Setup:</strong> Extend arms forward, make fists<br>
+                        <strong>Movement:</strong> Circle wrists in both directions<br>
+                        <strong>Reps:</strong> 15 each direction<br>
+                        <span class="direction">FULL RANGE</span>
+                    </div>
+                </div>
+
+                <div class="visual-card">
+                    <h3>7. Thoracic Rotation (Quadruped)</h3>
+                    <div class="diagram">
+                        🐕 <span class="arrow">↻</span><br>
+                        <span class="body-part">MID-BACK</span>
+                    </div>
+                    <div class="instruction-box">
+                        <strong>Setup:</strong> Hands and knees, one hand behind head<br>
+                        <strong>Movement:</strong> Rotate elbow down toward opposite knee, then up toward ceiling<br>
+                        <strong>Reps:</strong> 8 each side<br>
+                        <span class="direction">FOLLOW ELBOW WITH EYES</span>
+                    </div>
+                </div>
+
+                <div class="tip">
+                    <strong>💡 Visual Cues:</strong>
+                    <ul>
+                        <li>↻↺ = Circular rotation movements</li>
+                        <li>← → = Side-to-side movements</li>
+                        <li>⟲ = Backward circles</li>
+                        <li>All movements should be SMOOTH, never jerky</li>
+                    </ul>
+                </div>
+
+                <div class="warning">
+                    <strong>⚠️ Key Principle:</strong> These are ROTATIONS, not stretches. Move through space without pulling or forcing. Pain-free zones only.
+                </div>
+            </div>
+            
+            <div id="steps" class="section">
+                <h2>Step-by-Step Guide</h2>
+                
+                <div class="step">
+                    <span class="step-num">1</span>
+                    <strong>Assess Your Body</strong>
+                    <p>Identify areas of restriction. Notice where movement feels limited or uncomfortable. Check posture in mirror.</p>
+                </div>
+
+                <div class="step">
+                    <span class="step-num">2</span>
+                    <strong>Create Space</strong>
+                    <p>Find quiet environment. Use yoga mat or soft surface. Wear comfortable, non-restrictive clothing.</p>
+                </div>
+
+                <div class="step">
+                    <span class="step-num">3</span>
+                    <strong>Start with Breath</strong>
+                    <p>Take 5 deep belly breaths. Inhale for 4 counts, exhale for 6. This activates parasympathetic nervous system.</p>
+                </div>
+
+                <div class="step">
+                    <span class="step-num">4</span>
+                    <strong>Begin Rotation</strong>
+                    <p>Choose a body region (neck, shoulders, hips). Perform slow, controlled rotations in both directions. 5-10 rotations each way.</p>
+                </div>
+
+                <div class="step">
+                    <span class="step-num">5</span>
+                    <strong>Layer Movements</strong>
+                    <p>Combine rotations with gentle compression. Example: rotate shoulder while applying light pressure to pectoral area.</p>
+                </div>
+
+                <div class="step">
+                    <span class="step-num">6</span>
+                    <strong>Follow Restrictions</strong>
+                    <p>When you hit resistance, pause. Breathe into the area for 30-60 seconds. Let tissue release naturally.</p>
+                </div>
+
+                <div class="step">
+                    <span class="step-num">7</span>
+                    <strong>Integrate & Reassess</strong>
+                    <p>Move the worked area through full range. Notice differences. Walk around and observe changes in how your body feels.</p>
+                </div>
+
+                <div class="tip">
+                    <strong>💡 Pro Tip:</strong> Never force movement. Pain is a signal to stop or modify. Work at 60-70% intensity.
+                </div>
+            </div>
+            
+            <div id="skills" class="section">
+                <h2>Essential Skills</h2>
+                
+                <div class="card">
+                    <h3>🎯 Body Awareness</h3>
+                    <p>Develop proprioception—your body's sense of position and movement. Practice noticing subtle sensations, asymmetries, and patterns of holding.</p>
+                </div>
+
+                <div class="card">
+                    <h3>🌊 Breath Control</h3>
+                    <p>Master diaphragmatic breathing. Breath drives fascial hydration and nervous system regulation. Exhale to release, inhale to create space.</p>
+                </div>
+
+                <div class="card">
+                    <h3>🔄 Spiral Mechanics</h3>
+                    <p>Understand that fascia moves in helical patterns. Combine rotation with compression, traction, or shear forces for deeper release.</p>
+                </div>
+
+                <div class="card">
+                    <h3>⏱️ Patience & Timing</h3>
+                    <p>Fascial change requires time—minimum 90-120 seconds per area for piezoelectric effect. Don't rush the process.</p>
+                </div>
+
+                <div class="card">
+                    <h3>🔍 Assessment</h3>
+                    <p>Learn to evaluate restrictions visually and through touch. Identify compensation patterns before addressing primary restrictions.</p>
+                </div>
+
+                <h2>Key Maneuvers to Master</h2>
+                <ul>
+                    <li><strong>Neck Rotation:</strong> Sit tall, slowly rotate head side to side, 10 reps</li>
+                    <li><strong>Shoulder Circles:</strong> Arms at sides, rotate shoulders backwards, 15 reps</li>
+                    <li><strong>Hip CARs:</strong> Controlled articular rotations, lift knee and rotate hip through full ROM</li>
+                    <li><strong>Ankle Circles:</strong> Point toe, draw circles, 20 each direction per foot</li>
+                    <li><strong>Spinal Twist:</strong> Seated or standing, rotate torso, keep hips stable</li>
+                </ul>
+            </div>
+            
+            <div id="beginner" class="section">
+                <h2>Beginner's Guide</h2>
+                
+                <div class="warning">
+                    <strong>⚠️ Remember:</strong> Rotation > Stretching. Avoid aggressive pulling or forcing positions.
+                </div>
+
+                <h3>Week 1: Foundation</h3>
+                <div class="card">
+                    <p><strong>Daily Practice (10 min):</strong></p>
+                    <ul>
+                        <li>5 minutes breathwork</li>
+                        <li>Gentle neck rotations (2 min)</li>
+                        <li>Shoulder circles (2 min)</li>
+                        <li>Hip circles standing (1 min)</li>
+                    </ul>
+                    <p><strong>Goal:</strong> Establish consistency and body awareness without discomfort.</p>
+                </div>
+
+                <h3>Week 2-3: Building</h3>
+                <div class="card">
+                    <p><strong>Daily Practice (15 min):</strong></p>
+                    <ul>
+                        <li>Add ankle rotations</li>
+                        <li>Introduce spinal twists</li>
+                        <li>Begin layering compression with rotation</li>
+                        <li>Increase hold times to 60 seconds</li>
+                    </ul>
+                </div>
+
+                <h3>Week 4+: Integration</h3>
+                <div class="card">
+                    <p><strong>Daily Practice (20 min):</strong></p>
+                    <ul>
+                        <li>Full-body rotation sequence</li>
+                        <li>Work on specific restrictions</li>
+                        <li>Combine multiple planes of movement</li>
+                        <li>Practice self-assessment skills</li>
+                    </ul>
+                </div>
+
+                <div class="tip">
+                    <strong>💡 Success Tips:</strong>
+                    <ul>
+                        <li>Start with 5-10 min daily rather than 30 min weekly</li>
+                        <li>Morning sessions improve posture all day</li>
+                        <li>Use video to check your form</li>
+                        <li>Join online communities for support</li>
+                        <li>Track progress with before/after mobility tests</li>
+                    </ul>
+                </div>
+
+                <h2>Common Mistakes to Avoid</h2>
+                <ul>
+                    <li>❌ Forcing movements past restriction</li>
+                    <li>❌ Holding breath during maneuvers</li>
+                    <li>❌ Moving too quickly through rotations</li>
+                    <li>❌ Skipping warm-up breathwork</li>
+                    <li>❌ Expecting instant results</li>
+                    <li>❌ Using static stretching instead of rotation</li>
+                </ul>
+
+                <div class="card">
+                    <h3>When to Seek Professional Help</h3>
+                    <p>Consult a fascial specialist or physical therapist if you experience sharp pain, numbness, swelling, or if restrictions don't improve after 4-6 weeks of consistent practice.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // State management
+        let state = {
+            sessions: [],
+            streak: 0,
+            totalMinutes: 0,
+            mobility: {
+                neck: 0,
+                shoulder: 0,
+                hip: 0,
+                pain: 0
+            },
+            weeklyGoal: 5
+        };
+
+        // Load state from memory
+        function loadState() {
+            const saved = localStorage.getItem('fascialTracker');
+            if (saved) {
+                state = JSON.parse(saved);
+                updateUI();
+            }
+        }
+
+        // Save state to memory
+        function saveState() {
+            localStorage.setItem('fascialTracker', JSON.stringify(state));
+        }
+
+        // Calculate streak
+        function calculateStreak() {
+            if (state.sessions.length === 0) return 0;
+            
+            const today = new Date().toDateString();
+            const sortedSessions = state.sessions.sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            let streak = 0;
+            let currentDate = new Date();
+            
+            for (let session of sortedSessions) {
+                const sessionDate = new Date(session.date).toDateString();
+                const checkDate = new Date(currentDate).toDateString();
+                
+                if (sessionDate === checkDate) {
+                    streak++;
+                    currentDate.setDate(currentDate.getDate() - 1);
+                } else {
+                    break;
+                }
+            }
+            
+            return streak;
+        }
+
+        // Log session
+        function logSession() {
+            const select = document.getElementById('routineSelect');
+            const customTime = document.getElementById('customTime');
+            
+            let minutes = 0;
+            let routineName = '';
+            
+            if (select.value === 'custom') {
+                minutes = parseInt(customTime.value) || 0;
+                routineName = 'Custom Session';
+            } else if (select.value) {
+                minutes = parseInt(select.value);
+                routineName = select.options[select.selectedIndex].text;
+            }
+            
+            if (minutes === 0) {
+                alert('Please select a routine or enter custom minutes');
+                return;
+            }
+            
+            const session = {
+                date: new Date().toISOString(),
+                routine: routineName,
+                minutes: minutes
+            };
+            
+            state.sessions.push(session);
+            state.totalMinutes += minutes;
+            state.streak = calculateStreak();
+            
+            saveState();
+            updateUI();
+            
+            select.value = '';
+            customTime.value = '';
+            document.getElementById('customMinutes').style.display = 'none';
+        }
+
+        // Delete session
+        function deleteSession(index) {
+            const session = state.sessions[index];
+            state.totalMinutes -= session.minutes;
+            state.sessions.splice(index, 1);
+            state.streak = calculateStreak();
+            saveState();
+            updateUI();
+        }
+
+        // Save mobility test
+        function saveTest(type) {
+            const input = document.getElementById(type + 'Test');
+            const value = parseInt(input.value) || 0;
+            
+            if (value === 0) return;
+            
+            state.mobility[type] = value;
+            saveState();
+            updateMobilityUI();
+            input.value = '';
+        }
+
+        // Update mobility UI
+        function updateMobilityUI() {
+            const maxValues = { neck: 90, shoulder: 180, hip: 45, pain: 10 };
+            
+            for (let type in state.mobility) {
+                const value = state.mobility[type];
+                const max = maxValues[type];
+                const percent = Math.min((value / max) * 100, 100);
+                const progressBar = document.getElementById(type + 'Progress');
+                
+                if (progressBar) {
+                    progressBar.style.width = percent + '%';
+                    progressBar.textContent = value + (type === 'pain' ? '' : '°');
+                }
+            }
+        }
+
+        // Update UI
+        function updateUI() {
+            // Update stats
+            document.getElementById('streakCount').textContent = state.streak;
+            document.getElementById('totalSessions').textContent = state.sessions.length;
+            document.getElementById('totalMinutes').textContent = state.totalMinutes;
+            
+            // Update session log
+            const logContainer = document.getElementById('sessionLog');
+            if (state.sessions.length === 0) {
+                logContainer.innerHTML = '<p style="text-align:center; color:#6c757d; font-size:12px; padding:20px;">No sessions logged yet. Start tracking!</p>';
+            } else {
+                const recentSessions = state.sessions.slice(-10).reverse();
+                logContainer.innerHTML = recentSessions.map((session, index) => {
+                    const date = new Date(session.date);
+                    const dateStr = date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                    const actualIndex = state.sessions.length - 1 - index;
+                    
+                    return `
+                        <div class="log-entry">
+                            <div>
+                                <div class="log-date">${dateStr}</div>
+                                <div class="log-routine">${session.routine} - ${session.minutes} min</div>
+                            </div>
+                            <button class="delete-btn" onclick="deleteSession(${actualIndex})">✕</button>
+                        </div>
+                    `;
+                }).join('');
+            }
+            
+            // Update weekly progress
+            const thisWeek = state.sessions.filter(s => {
+                const sessionDate = new Date(s.date);
+                const weekAgo = new Date();
+                weekAgo.setDate(weekAgo.getDate() - 7);
+                return sessionDate >= weekAgo;
+            }).length;
+            
+            const weeklyPercent = Math.min((thisWeek / state.weeklyGoal) * 100, 100);
+            document.getElementById('weeklyGoal').textContent = thisWeek + '/' + state.weeklyGoal;
+            document.getElementById('weeklyProgress').style.width = weeklyPercent + '%';
+            document.getElementById('weeklyProgress').textContent = Math.round(weeklyPercent) + '%';
+            
+            updateMobilityUI();
+        }
+
+        // Show custom minutes input
+        document.getElementById('routineSelect').addEventListener('change', function() {
+            const customDiv = document.getElementById('customMinutes');
+            customDiv.style.display = this.value === 'custom' ? 'block' : 'none';
+        });
+
+        function showTab(tabName) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Remove active from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected section and activate tab
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Load state on page load
+        loadState();
+    </script>
+</body>
+</html>
